@@ -197,3 +197,17 @@ class ExpenseTrackerCLI:
     def __init__(self):
         self.tracker = ExpenseTracker()
     
+    def display_menu(self) -> None:
+        """Display the main menu options"""
+        print("\n" + "="*50)
+        print("$ Personal Expense Tracker $")
+        print("="*50)
+        print("1. Add New Transaction")
+        print("2. View All Transactions")
+        print("3. View Transactions by Category")
+        print("4. View Transactions by Date Range")
+        print("5. View Summary Statistics")
+        print("6. View Category Summary")
+        print("7. Exit")
+        print("="*50)
+    
