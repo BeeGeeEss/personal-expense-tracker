@@ -113,3 +113,7 @@ class ExpenseTracker:
         except Exception as e:
             print(f"Error saving transactions: {e}")
     
+    def get_all_transactions(self) -> List[Transaction]:
+        """Get all transactions"""
+        return self.transactions.copy()
+    
