@@ -70,4 +70,9 @@ class ExpenseTracker:
         
         # Load existing transactions on startup
         self.load_transactions()
+        
+    def add_transaction(self, transaction: Transaction) -> None:
+        """Add a new transaction to the tracker"""
+        self.transactions.append(transaction)
+        self.save_transactions()
     
