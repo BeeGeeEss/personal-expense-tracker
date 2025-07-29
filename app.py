@@ -27,3 +27,7 @@ class Transaction:
         except ValueError:
             raise ValueError("Date must be in DD/MM/YYYY format")
     
+    def get_signed_amount(self) -> float:
+        """Return amount with proper sign: positive (+) for income or negative (-) for expense"""
+        return self.amount if self.transaction_type == "income" else -self.amount
+    
