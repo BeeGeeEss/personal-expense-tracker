@@ -394,3 +394,22 @@ class ExpenseTrackerCLI:
         except Exception as e:
             print(f"Error viewing transactions by category: {e}")
     
+    def view_transactions_by_date_range(self) -> None:
+        """View transactions within a date range"""
+        try:
+            print("\n" + "-" * 50)
+            print("Enter Date Range")
+            print("-" * 50)
+            start_date = self.get_date_input("Enter start date (DD/MM/YYYY): ")
+            end_date = self.get_date_input("Enter end date (DD/MM/YYYY): ")
+            
+            if start_date > end_date:
+                print("Start date must be before or equal to end date.")
+                return
+            
+            transactions = self.tracker.get_transactions_by_date_range(start_date, end_date)
+            self.display_transactions(transactions, f"Transactions from {start_date} to {end_date}")
+            
+        except Exception as e:
+            print(f"Error viewing transactions by date range: {e}")
+    
