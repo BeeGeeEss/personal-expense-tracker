@@ -171,4 +171,21 @@ class ExpenseTracker:
             'net_balance': total_income - total_expenses,
             'categories': self.get_categories()
         }
-    
+   
+    def get_category_summary(self) -> Dict[str, Dict]:
+        """Get summary by category"""
+        category_summary = {}
+        
+        for category in self.get_categories():
+            category_transactions = self.get_transactions_by_category(category)
+            income = sum(t.amount for t in category_transactions if t.is_income())
+            expenses = sum(t.amount for t in category_transactions if t.is_expense())
+            
+            category_summary[category] = {
+                'count': len(category_transactions),
+                'income': income,
+                'expenses': expenses,
+                'net': income - expenses
+            }
+        
+        return category_summary
