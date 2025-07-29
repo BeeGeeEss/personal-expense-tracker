@@ -258,3 +258,22 @@ class ExpenseTrackerCLI:
                 print("\nGoodbye!")
                 exit()
     
+    def get_transaction_type(self) -> str:
+        """Get transaction type from user"""
+        while True:
+            try:
+                print("\nTransaction Type:")
+                print("1. Income")
+                print("2. Expense")
+                choice = input("Choose transaction type (1 or 2): ").strip()
+                
+                if choice == '1':
+                    return "income"
+                elif choice == '2':
+                    return "expense"
+                else:
+                    print("Invalid choice. Please enter 1 or 2.")
+            except KeyboardInterrupt:
+                print("\nGoodbye!")
+                exit()
+    
