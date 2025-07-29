@@ -461,3 +461,41 @@ class ExpenseTrackerCLI:
         headers = ["Category", "Count", "Income", "Expenses", "Net"]
         print(tabulate(data, headers=headers, tablefmt="grid"))
     
+    def run(self) -> None:
+        """Main application loop"""
+        print("Welcome to the Personal Expense Tracker!")
+        
+        while True:
+            try:
+                self.display_menu()
+                choice = self.get_user_choice()
+                
+                if choice == '1':
+                    self.add_transaction()
+                elif choice == '2':
+                    self.view_all_transactions()
+                elif choice == '3':
+                    self.view_transactions_by_category()
+                elif choice == '4':
+                    self.view_transactions_by_date_range()
+                elif choice == '5':
+                    self.view_summary_statistics()
+                elif choice == '6':
+                    self.view_category_summary()
+                elif choice == '7':
+                    print("Saving data...")
+                    self.tracker.save_transactions()
+                    print("Thank you for using the Personal Expense Tracker!")
+                    break
+                
+                input("\n" + "-" * 50 + "\nPress Enter to continue...")
+                print("-" * 50)
+                
+            except KeyboardInterrupt:
+                print("\nSaving data...")
+                self.tracker.save_transactions()
+                print("Goodbye!")
+                break
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+                print("Please try again.")
