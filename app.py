@@ -499,3 +499,15 @@ class ExpenseTrackerCLI:
             except Exception as e:
                 print(f"An unexpected error occurred: {e}")
                 print("Please try again.")
+
+
+if __name__ == "__main__":
+    try:
+        app = ExpenseTrackerCLI()
+        app.run()
+    except ImportError as e:
+        print("Missing required packages. Please install them using:")
+        print("pip install -r requirements.txt")
+        print(f"Error: {e}")
+    except Exception as e:
+        print(f"Failed to start application: {e}")
