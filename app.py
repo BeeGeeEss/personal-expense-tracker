@@ -139,3 +139,7 @@ class ExpenseTracker:
         except ValueError:
             raise ValueError("Dates must be in DD/MM/YYYY format")
     
+    def get_transactions_by_type(self, transaction_type: str) -> List[Transaction]:
+        """Get transactions by type (income or expense)"""
+        return [t for t in self.transactions if t.transaction_type == transaction_type.lower()]
+    
