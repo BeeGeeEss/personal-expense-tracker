@@ -413,3 +413,19 @@ class ExpenseTrackerCLI:
         except Exception as e:
             print(f"Error viewing transactions by date range: {e}")
     
+    def view_summary_statistics(self) -> None:
+        """Display summary statistics"""
+        stats = self.tracker.get_summary_stats()
+        
+        print("\n" + "-" * 50)
+        print("Summary Statistics")
+        print("-" * 50)
+        print(f"Total Transactions: {stats['total_transactions']}")
+        print(f"Total Income: ${stats['total_income']:.2f}")
+        print(f"Total Expenses: ${stats['total_expenses']:.2f}")
+        print(f"Net Balance: ${stats['net_balance']:.2f}")
+        print(f"Categories: {len(stats['categories'])}")
+        
+        if stats['categories']:
+            print(f"Category List: {', '.join(stats['categories'])}")
+    
