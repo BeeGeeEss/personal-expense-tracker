@@ -143,3 +143,7 @@ class ExpenseTracker:
         """Get transactions by type (income or expense)"""
         return [t for t in self.transactions if t.transaction_type == transaction_type.lower()]
     
+    def get_categories(self) -> List[str]:
+        """Get unique categories from all transactions"""
+        return list(set(t.category for t in self.transactions))
+    
