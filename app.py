@@ -121,3 +121,21 @@ class ExpenseTracker:
         """Get transactions filtered by category"""
         return [t for t in self.transactions if t.category.lower() == category.lower()]
     
+    def get_transactions_by_date_range(self, start_date: str, end_date: str) -> List[Transaction]:
+        """Get transactions within a date range"""
+        try:
+            # Validate date format and convert to datetime for comparison
+            start_dt = datetime.strptime(start_date, "%d/%m/%Y")
+            end_dt = datetime.strptime(end_date, "%d/%m/%Y")
+            
+            # Filter transactions by converting their dates to datetime objects
+            filtered_transactions = []
+            for t in self.transactions:
+                t_dt = datetime.strptime(t.date, "%d/%m/%Y")
+                if start_dt <= t_dt <= end_dt:
+                    filtered_transactions.append(t)
+            
+            return filtered_transactions
+        except ValueError:
+            raise ValueError("Dates must be in DD/MM/YYYY format")
+    
