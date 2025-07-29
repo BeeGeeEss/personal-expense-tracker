@@ -99,3 +99,33 @@ The user is prompted to `Enter your choice (1-7)`, with the number entered openi
 
 - Upon exiting the application, the newly entered transaction data is saved to a CSV file.
 - This data is loaded into the application when it is next run.
+
+## Libraries Used
+
+All libraries referenced within this application have been used ethically and in accordance with their respective licensing agreements, detailed below.
+
+### Python Standard Library
+
+The Python Standard Library is distributed under the [Python Software Foundation License](https://docs.python.org/3/license.html), which is an [open-source](https://opensource.org/osd) license (i.e., free to use, modify and distribute). The below libraries are part of the Python Standard Library.
+
+#### `csv`
+
+[This library](https://docs.python.org/3/library/csv.html) is used for reading and writing CSV (Comma Separated Values) files.
+
+#### `datetime`
+
+[This library](https://docs.python.org/3/library/datetime.html) is used for the validation and formatting of dates, as well as retrieving the current date.
+
+#### `os`
+
+[This library](https://docs.python.org/3/library/os.html) is used to check if the required CSV file already exists.
+
+#### `typing`
+
+[This library](https://docs.python.org/3/library/typing.html) provides support for type hints.
+
+### Third-Party Libraries
+
+#### `Tabulate`
+
+[Tabulate](https://pypi.org/project/tabulate/) is distributed under the open-source [MIT License](https://opensource.org/license/mit). Per the [Tabulate license](https://github.com/aks/python-tabulate/blob/master/LICENSE), this software is free to use, modify and distribute.
