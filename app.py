@@ -70,9 +70,35 @@ class ExpenseTracker:
         
         # Load existing transactions on startup
         self.load_transactions()
-        
+
     def add_transaction(self, transaction: Transaction) -> None:
         """Add a new transaction to the tracker"""
         self.transactions.append(transaction)
         self.save_transactions()
+    
+    def load_transactions(self) -> None:
+        """Load transactions from CSV file"""
+        try:
+            if os.path.exists(self.csv_file):
+                with open(self.csv_file, 'r', newline='', encoding='utf-8') as file:
+                    reader = csv.DictReader(file)
+                    for row in reader:
+                        try:
+                            transaction = Transaction(
+                                date=row['date'],
+                                category=row['category'],
+                                description=row['description'],
+                                amount=float(row['amount']),
+                                transaction_type=row['transaction_type']
+                            )
+                            self.transactions.append(transaction)
+                        except (ValueError, KeyError) as e:
+                            print(f"Warning: Skipping invalid transaction in CSV: {e}")
+                            continue
+                print("\n" + "=" * 50 + "\n")
+                print(f"Loaded {len(self.transactions)} transactions from {self.csv_file}" + "\n")
+            else:
+                print(f"No existing data file found. Now creating a new file...")
+        except Exception as e:
+            print(f"Error loading transactions: {e}")
     
