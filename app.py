@@ -38,4 +38,8 @@ class Transaction:
     def is_expense(self) -> bool:
         """Check if this is an expense transaction"""
         return self.transaction_type == "expense"
-     
+   
+    def to_list(self) -> List:
+        """Convert transaction to list format for storage in CSV"""
+        return [self.date, self.category, self.description, self.amount, self.transaction_type]
+    
