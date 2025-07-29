@@ -43,3 +43,14 @@ class Transaction:
         """Convert transaction to list format for storage in CSV"""
         return [self.date, self.category, self.description, self.amount, self.transaction_type]
     
+    def to_dict(self) -> Dict:
+        """Convert transaction to dictionary format"""
+        return {
+            'date': self.date,
+            'category': self.category,
+            'description': self.description,
+            'amount': self.amount,
+            'transaction_type': self.transaction_type,
+            'signed_amount': self.get_signed_amount()
+        }
+    
