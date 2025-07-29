@@ -242,3 +242,19 @@ class ExpenseTrackerCLI:
                 print("\nGoodbye!")
                 exit()
     
+    def get_amount_input(self, prompt: str) -> float:
+        """Get and validate amount input from user"""
+        while True:
+            try:
+                amount_str = input(prompt).strip()
+                amount = float(amount_str)
+                if amount <= 0:
+                    print("Amount must be greater than 0.")
+                    continue
+                return amount
+            except ValueError:
+                print("Invalid amount. Please enter a valid number.")
+            except KeyboardInterrupt:
+                print("\nGoodbye!")
+                exit()
+    
