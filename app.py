@@ -30,4 +30,8 @@ class Transaction:
     def get_signed_amount(self) -> float:
         """Return amount with proper sign: positive (+) for income or negative (-) for expense"""
         return self.amount if self.transaction_type == "income" else -self.amount
-    
+
+   def is_income(self) -> bool:
+        """Check if this is an income transaction"""
+        return self.transaction_type == "income"
+     
