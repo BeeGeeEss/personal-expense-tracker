@@ -429,3 +429,35 @@ class ExpenseTrackerCLI:
         if stats['categories']:
             print(f"Category List: {', '.join(stats['categories'])}")
     
+    def view_category_summary(self) -> None:
+        """Display category summary"""
+        category_summary = self.tracker.get_category_summary()
+        
+        if not category_summary:
+            print("No categories found.")
+            return
+        
+        print("\n" + "-" * 50)
+        print("Category Summary")
+        print("-" * 50)
+        
+        # Convert to table format
+        data = []
+        for category, stats in category_summary.items():
+            # Format net amount with + or - at the end
+            if stats['net'] >= 0:
+                net_display = f"${stats['net']:.2f}+"
+            else:
+                net_display = f"${abs(stats['net']):.2f}-"
+            
+            data.append([
+                category,
+                stats['count'],
+                f"${stats['income']:.2f}",
+                f"${stats['expenses']:.2f}",
+                net_display
+            ])
+        
+        headers = ["Category", "Count", "Income", "Expenses", "Net"]
+        print(tabulate(data, headers=headers, tablefmt="grid"))
+    
