@@ -224,3 +224,21 @@ class ExpenseTrackerCLI:
                 print("\nGoodbye!")
                 exit()
     
+    def get_date_input(self, prompt: str) -> str:
+        """Get and validate date input from user"""
+        while True:
+            try:
+                date_str = input(prompt).strip()
+                if not date_str:
+                    date_str = datetime.now().strftime("%d/%m/%Y")
+                    print(f"Using today's date: {date_str}")
+                
+                # Validate date format
+                datetime.strptime(date_str, "%d/%m/%Y")
+                return date_str
+            except ValueError:
+                print("Invalid date format. Please use DD/MM/YYYY (e.g., 01/01/2025)")
+            except KeyboardInterrupt:
+                print("\nGoodbye!")
+                exit()
+    
