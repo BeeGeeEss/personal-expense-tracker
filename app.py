@@ -58,3 +58,16 @@ class Transaction:
         """String representation of transaction"""
         sign = "+" if self.is_income() else "-"
         return f"{self.date} | {self.category} | {self.description} | {sign}${self.amount:.2f}"
+
+
+class ExpenseTracker:
+    """Main class to manage expense tracking functionality"""
+    
+    def __init__(self, csv_file: str = "transactions.csv"):
+        self.csv_file = csv_file
+        self.transactions: List[Transaction] = []
+        self.csv_headers = ["date", "category", "description", "amount", "transaction_type"]
+        
+        # Load existing transactions on startup
+        self.load_transactions()
+    
