@@ -189,3 +189,11 @@ class ExpenseTracker:
             }
         
         return category_summary
+
+
+class ExpenseTrackerCLI:
+    """Command Line Interface for the Expense Tracker"""
+    
+    def __init__(self):
+        self.tracker = ExpenseTracker()
+    
