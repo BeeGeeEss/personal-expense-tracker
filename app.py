@@ -147,3 +147,28 @@ class ExpenseTracker:
         """Get unique categories from all transactions"""
         return list(set(t.category for t in self.transactions))
     
+    def get_summary_stats(self) -> Dict:
+        """Get summary statistics"""
+        if not self.transactions:
+            return {
+                'total_transactions': 0,
+                'total_income': 0,
+                'total_expenses': 0,
+                'net_balance': 0,
+                'categories': []
+            }
+        
+        income_transactions = self.get_transactions_by_type("income")
+        expense_transactions = self.get_transactions_by_type("expense")
+        
+        total_income = sum(t.amount for t in income_transactions)
+        total_expenses = sum(t.amount for t in expense_transactions)
+        
+        return {
+            'total_transactions': len(self.transactions),
+            'total_income': total_income,
+            'total_expenses': total_expenses,
+            'net_balance': total_income - total_expenses,
+            'categories': self.get_categories()
+        }
+    
