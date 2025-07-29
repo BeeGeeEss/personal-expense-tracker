@@ -54,3 +54,7 @@ class Transaction:
             'signed_amount': self.get_signed_amount()
         }
     
+    def __str__(self) -> str:
+        """String representation of transaction"""
+        sign = "+" if self.is_income() else "-"
+        return f"{self.date} | {self.category} | {self.description} | {sign}${self.amount:.2f}"
