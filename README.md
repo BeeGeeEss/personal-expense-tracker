@@ -15,3 +15,11 @@ The Personal Expense Tracker application is a Command Line Interface (CLI) appli
 - A functioning computer (e.g., laptop, desktop)
 - A Command Line Interface (e.g., the terminal within VS Code)
 - Installation of Python3
+
+## Instructions for Use
+
+1. Change directory (`cd`) to the root folder of the application.
+2. Create a virtual environment: `python3 -m venv .venv`
+3. Ensure the virtual environment is active. If it doesn't activate automatically, run: `source .venv/bin/activate`
+4. Install dependencies: `pip install -r requirements.txt`
+5. Run the program: `python3 app.py`
