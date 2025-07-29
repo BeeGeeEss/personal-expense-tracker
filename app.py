@@ -211,3 +211,16 @@ class ExpenseTrackerCLI:
         print("7. Exit")
         print("="*50)
     
+    def get_user_choice(self) -> str:
+        """Get and validate user menu choice"""
+        while True:
+            try:
+                choice = input("Enter your choice (1-7): ").strip()
+                if choice in ['1', '2', '3', '4', '5', '6', '7']:
+                    return choice
+                else:
+                    print("Invalid choice. Please enter a number between 1 and 7.")
+            except KeyboardInterrupt:
+                print("\nGoodbye!")
+                exit()
+    
