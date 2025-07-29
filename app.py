@@ -102,3 +102,14 @@ class ExpenseTracker:
         except Exception as e:
             print(f"Error loading transactions: {e}")
     
+    def save_transactions(self) -> None:
+        """Save all transactions to CSV file"""
+        try:
+            with open(self.csv_file, 'w', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                writer.writerow(self.csv_headers)
+                for transaction in self.transactions:
+                    writer.writerow(transaction.to_list())
+        except Exception as e:
+            print(f"Error saving transactions: {e}")
+    
