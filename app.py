@@ -34,4 +34,8 @@ class Transaction:
    def is_income(self) -> bool:
         """Check if this is an income transaction"""
         return self.transaction_type == "income"
+
+    def is_expense(self) -> bool:
+        """Check if this is an expense transaction"""
+        return self.transaction_type == "expense"
      
