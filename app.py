@@ -277,3 +277,32 @@ class ExpenseTrackerCLI:
                 print("\nGoodbye!")
                 exit()
     
+    def add_transaction(self) -> None:
+        """Add a new transaction through CLI"""
+        print("\n" + "-" * 50)
+        print("Add New Transaction")
+        print("-" * 50)
+        
+        try:
+            # Get transaction details
+            date = self.get_date_input("Enter date (DD/MM/YYYY), or press Enter for today: ")
+            category = input("Enter category: ").strip()
+            description = input("Enter description: ").strip()
+            amount = self.get_amount_input("Enter amount: $")
+            transaction_type = self.get_transaction_type()
+            
+            # Validate required fields
+            if not category or not description:
+                print("Category and description are required.")
+                return
+            
+            # Create and add transaction
+            transaction = Transaction(date, category, description, amount, transaction_type)
+            self.tracker.add_transaction(transaction)
+            
+            print(f"Transaction added successfully!")
+            print(f"{transaction}")
+            
+        except Exception as e:
+            print(f"Error adding transaction: {e}")
+    
