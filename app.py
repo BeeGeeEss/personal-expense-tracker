@@ -355,3 +355,8 @@ class ExpenseTrackerCLI:
             else:
                 print(f"Net Balance:    ${abs(net_balance):.2f}-")
     
+    def view_all_transactions(self) -> None:
+        """View all transactions"""
+        transactions = self.tracker.get_all_transactions()
+        self.display_transactions(transactions, "All Transactions")
+    
