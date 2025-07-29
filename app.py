@@ -19,3 +19,11 @@ class Transaction:
         if self.transaction_type not in ["income", "expense"]:
             raise ValueError("Transaction type must be 'income' or 'expense'")
     
+    def _validate_date(self, date_str: str) -> str:
+        """Validate and format date string in the format DD/MM/YYYY"""
+        try:
+            datetime.strptime(date_str, "%d/%m/%Y")
+            return date_str
+        except ValueError:
+            raise ValueError("Date must be in DD/MM/YYYY format")
+    
