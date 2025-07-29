@@ -360,3 +360,37 @@ class ExpenseTrackerCLI:
         transactions = self.tracker.get_all_transactions()
         self.display_transactions(transactions, "All Transactions")
     
+    def view_transactions_by_category(self) -> None:
+        """View transactions filtered by category"""
+        categories = self.tracker.get_categories()
+        
+        if not categories:
+            print("No categories found.")
+            return
+        
+        print("\n" + "-" * 50)
+        print("Available Categories:")
+        print("-" * 50)
+        for i, category in enumerate(categories, 1):
+            print(f"{i}. {category}")
+        
+        try:
+            choice = input("\nEnter category number or type category name: ").strip()
+            
+            # Check if it's a number
+            if choice.isdigit():
+                choice_num = int(choice)
+                if 1 <= choice_num <= len(categories):
+                    selected_category = categories[choice_num - 1]
+                else:
+                    print("Invalid category number.")
+                    return
+            else:
+                selected_category = choice
+            
+            transactions = self.tracker.get_transactions_by_category(selected_category)
+            self.display_transactions(transactions, f"Transactions in '{selected_category}' Category")
+            
+        except Exception as e:
+            print(f"Error viewing transactions by category: {e}")
+    
