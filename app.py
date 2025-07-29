@@ -117,3 +117,7 @@ class ExpenseTracker:
         """Get all transactions"""
         return self.transactions.copy()
     
+    def get_transactions_by_category(self, category: str) -> List[Transaction]:
+        """Get transactions filtered by category"""
+        return [t for t in self.transactions if t.category.lower() == category.lower()]
+    
