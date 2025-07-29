@@ -306,3 +306,52 @@ class ExpenseTrackerCLI:
         except Exception as e:
             print(f"Error adding transaction: {e}")
     
+    def display_transactions(self, transactions: List[Transaction], title: str = "Transactions") -> None:
+        """Display transactions in a formatted table"""
+        if not transactions:
+            print(f"\n{title}")
+            print("No transactions found.")
+            return
+        
+        # Sort transactions by date (newest to oldest)
+        sorted_transactions = sorted(transactions, key=lambda t: datetime.strptime(t.date, "%d/%m/%Y"), reverse=True)
+        
+        print(f"\n{title}")
+        print("-" * 80)
+        
+        # Convert to list of dictionaries for tabulate
+        data = []
+        total_income = 0
+        total_expenses = 0
+        
+        for t in sorted_transactions:
+            # Format amount with sign (+ or -) at the end for both income and expenses
+            if t.is_expense():
+                amount_display = f"${t.amount:.2f}-"
+                total_expenses += t.amount
+            else:
+                amount_display = f"${t.amount:.2f}+"
+                total_income += t.amount
+            
+            data.append([
+                t.date,
+                t.category,
+                t.description,
+                t.transaction_type.title(),
+                amount_display
+            ])
+        
+        headers = ["Date", "Category", "Description", "Type", "Amount"]
+        print(tabulate(data, headers=headers, tablefmt="grid"))
+        
+        # Add summary information at the bottom
+        if sorted_transactions:
+            net_balance = total_income - total_expenses
+            print(f"\nTransaction Summary:")
+            print(f"Total Income:   ${total_income:.2f}+")
+            print(f"Total Expenses: ${total_expenses:.2f}-")
+            if net_balance >= 0:
+                print(f"Net Balance:    ${net_balance:.2f}+")
+            else:
+                print(f"Net Balance:    ${abs(net_balance):.2f}-")
+    
