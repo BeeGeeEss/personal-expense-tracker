@@ -46,3 +46,8 @@ def test_transaction_invalid_date():
     """Test that invalid date formats raise an error"""
     with pytest.raises(ValueError, match="Date must be in DD/MM/YYYY format"):
         Transaction("2025-01-25", "Food", "Restaurant dinner", 37.80, "expense")
+
+def test_transaction_invalid_type():
+    """Test that invalid transaction types raise an error"""
+    with pytest.raises(ValueError, match="Transaction type must be 'income' or 'expense'"):
+        Transaction("31/07/2025", "Groceries", "Shopping for dinner", 34.56, "food")
