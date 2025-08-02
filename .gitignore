@@ -1,0 +1,11 @@
+# Virtual environment folder
+.venv/
+
+# Python cache folder
+__pycache__/
+
+# Pytest cache folder
+.pytest_cache/
+
+# Transaction data file
+transactions.csv
