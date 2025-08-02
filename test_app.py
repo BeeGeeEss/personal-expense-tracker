@@ -41,3 +41,8 @@ def test_transaction_signed_amount():
     
     expense = Transaction("03/08/2025", "Bills", "Phone bill", 73.00, "expense")
     assert expense.get_signed_amount() == -73.00
+
+def test_transaction_invalid_date():
+    """Test that invalid date formats raise an error"""
+    with pytest.raises(ValueError, match="Date must be in DD/MM/YYYY format"):
+        Transaction("2025-01-25", "Food", "Restaurant dinner", 37.80, "expense")
