@@ -15,3 +15,13 @@ def test_transaction_creation_expense():
     assert transaction.description == "Lunch at cafe"
     assert transaction.amount == 15.50
     assert transaction.is_expense() == True
+
+def test_transaction_creation_income():
+    """Test for creating a basic income transaction"""
+    transaction = Transaction("14/07/2025", "Wages", "Pay from work", 1000.00, "income")
+    
+    assert transaction.date == "14/07/2025"
+    assert transaction.category == "Wages"
+    assert transaction.description == "Pay from work"
+    assert transaction.amount == 1000.00
+    assert transaction.is_income() == True
