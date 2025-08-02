@@ -33,3 +33,11 @@ def test_transaction_default_type():
     assert transaction.transaction_type == "expense"
     assert transaction.is_expense() == True
     assert transaction.is_income() == False
+
+def test_transaction_signed_amount():
+    """Test that signed amounts work correctly for income(+) and expense(-) transactions"""
+    income = Transaction("14/06/2025", "Wages", "Pay from work", 1000.00, "income")
+    assert income.get_signed_amount() == +1000.00
+    
+    expense = Transaction("03/08/2025", "Bills", "Phone bill", 73.00, "expense")
+    assert expense.get_signed_amount() == -73.00
