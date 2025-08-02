@@ -25,3 +25,11 @@ def test_transaction_creation_income():
     assert transaction.description == "Pay from work"
     assert transaction.amount == 1000.00
     assert transaction.is_income() == True
+
+def test_transaction_default_type():
+    """Test that default transaction type is expense"""
+    transaction = Transaction("02/07/2025", "Takeaway", "Coffee", 7.50)
+    
+    assert transaction.transaction_type == "expense"
+    assert transaction.is_expense() == True
+    assert transaction.is_income() == False
