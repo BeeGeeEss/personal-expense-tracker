@@ -1,10 +1,6 @@
-import csv
-import os
 import pytest
 from app import Transaction, ExpenseTracker, ExpenseTrackerCLI
 from datetime import datetime
-from typing import List, Dict, Optional
-from tabulate import tabulate
 
 def test_transaction_creation_expense():
     """Test for creating a basic expense transaction"""
