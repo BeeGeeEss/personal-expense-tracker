@@ -1,0 +1,17 @@
+import csv
+import os
+import pytest
+from app import Transaction, ExpenseTracker, ExpenseTrackerCLI
+from datetime import datetime
+from typing import List, Dict, Optional
+from tabulate import tabulate
+
+def test_transaction_creation_expense():
+    """Test for creating a basic expense transaction"""
+    transaction = Transaction("01/07/2025", "Food", "Lunch at cafe", 15.50, "expense")
+    
+    assert transaction.date == "01/07/2025"
+    assert transaction.category == "Food"
+    assert transaction.description == "Lunch at cafe"
+    assert transaction.amount == 15.50
+    assert transaction.is_expense() == True
