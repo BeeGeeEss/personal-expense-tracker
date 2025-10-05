@@ -106,3 +106,13 @@ This document extends the [README](./README.md) by providing visual examples of 
 3. Press "Enter" to return to the main menu.
 
 ![](./images/view_summary_statistics.png)
+
+## 6. View Category Summary
+
+1. Select option #6 in the main menu to view a high level summary of transactions by category.
+
+2. Transactions are summarised by category (one category per row) with separate columns for the sum totals of income, expenses, and final net balance.
+
+3. Press "Enter" to return to the main menu.
+
+![](./images/view_category_summary.png)
