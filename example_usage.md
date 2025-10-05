@@ -72,3 +72,20 @@ This document extends the [README](./README.md) by providing visual examples of 
 5. To view additional transactions by category, repeat steps 1-4.
 
 ![](./images/view_transactions_by_category.png)
+
+## 4. View Transactions by Date Range
+
+1. Select option #4 in the main menu to view all transactions within a specific date range.
+
+2. Follow the prompts in the terminal, and press "Enter" after typing each piece of information.
+
+3. All transactions within the specified date range (inclusive of start and end dates) will be displayed.
+
+   - The table is sorted from newest to oldest.
+   - The "Transaction Summary" below the table gives the total sum of all income and expense values, and the net balance (i.e., what is leftover after expenses have been subtracted from the income total).
+
+4. Press "Enter" to return to the main menu.
+
+5. To view additional date ranges, repeat steps 1-4.
+
+![](./images/view_transactions_by_date_range.png)
