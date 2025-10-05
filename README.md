@@ -18,6 +18,8 @@ The Personal Expense Tracker application is a Command Line Interface (CLI) appli
 
 ## Starting the Application
 
+_For a visual guide on how to start the application, please refer to the [Example Usage](./example_usage.md#application-start-up) document._
+
 1. Change directory (`cd`) to the root folder of the application.
 2. Create a virtual environment: `python3 -m venv .venv`
 3. Ensure the virtual environment is active. If it doesn't activate automatically, run: `source .venv/bin/activate`
@@ -26,6 +28,8 @@ The Personal Expense Tracker application is a Command Line Interface (CLI) appli
 6. Run the program: `python3 app.py`
 
 ## Navigating the Application
+
+_For a visual guide on how to navigate the application, please refer to the [Example Usage](./example_usage.md#1-add-new-transaction) document._
 
 ### Main Menu
 
