@@ -89,3 +89,20 @@ This document extends the [README](./README.md) by providing visual examples of 
 5. To view additional date ranges, repeat steps 1-4.
 
 ![](./images/view_transactions_by_date_range.png)
+
+## 5. View Summary Statistics
+
+1. Select option #5 in the main menu to view a high level summary of all transaction information.
+
+2. Information displayed:
+
+   - Total Transactions: A total count of all transactions.
+   - Total Income: The sum total of all income transactions.
+   - Total Expenses: The sum total of all expense transactions.
+   - Net Balance: The remaining balance after expenses have been subtracted from income.
+   - Categories: A total count of all user-defined transaction categories.
+   - Category List: A list of all user-defined categories.
+
+3. Press "Enter" to return to the main menu.
+
+![](./images/view_summary_statistics.png)
