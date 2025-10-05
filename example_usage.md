@@ -116,3 +116,11 @@ This document extends the [README](./README.md) by providing visual examples of 
 3. Press "Enter" to return to the main menu.
 
 ![](./images/view_category_summary.png)
+
+## 7. Exit
+
+1. Select option #7 in the main menu to exit the application.
+
+2. Upon exit, the recorded transaction data will be saved to a CSV file (i.e., `transactions.csv` in the project directory). The next time the application is started, the data stored within this file will be loaded into the application.
+
+![](./images/exit.png)
