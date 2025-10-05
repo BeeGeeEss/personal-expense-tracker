@@ -31,12 +31,27 @@ This document extends the [README](./README.md) by providing visual examples of 
 
 ## 1. Add New Transaction
 
-1. Selection option #1 in the main menu to create a new income or expense transaction.
+1. Select option #1 in the main menu to create a new income or expense transaction.
 
 2. Follow the prompts in the terminal, and press "Enter" after typing each piece of information.
 
 3. Once all requested information has been entered, "Press Enter to continue..." will appear. This confirms that the transaction has been successfully recorded.
 
-4. To add additional transactions, repeat steps 1-3.
+4. Press "Enter" to return to the main menu.
+
+5. To add additional transactions, repeat steps 1-4.
 
 ![](./images/add_new_transaction.png)
+
+## 2. View All Transactions
+
+1. Select option #2 in the main menu to view ALL saved transactions.
+
+2. Transaction data is displayed in a table.
+
+   - The table is sorted from newest to oldest.
+   - The "Transaction Summary" below the table gives the total sum of all income and expense values, and the net balance (i.e., what is leftover after expenses have been subtracted from the income total).
+
+3. Press "Enter" to return to the main menu.
+
+![](./images/view_all_transactions.png)
