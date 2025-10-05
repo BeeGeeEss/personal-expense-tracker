@@ -28,3 +28,15 @@ This document extends the [README](./README.md) by providing visual examples of 
    ```
 
 ![](./images/application_start_up.png)
+
+## 1. Add New Transaction
+
+1. Selection option #1 in the main menu to create a new income or expense transaction.
+
+2. Follow the prompts in the terminal, and press "Enter" after typing each piece of information.
+
+3. Once all requested information has been entered, "Press Enter to continue..." will appear. This confirms that the transaction has been successfully recorded.
+
+4. To add additional transactions, repeat steps 1-3.
+
+![](./images/add_new_transaction.png)
